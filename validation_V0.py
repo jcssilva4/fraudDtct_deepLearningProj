@@ -402,8 +402,6 @@ for epoch in range(num_epochs):
     print('[LOG TRAIN {}] epoch: {:04}/{:04}, discriminator loss: {:.4f}'.format(now, epoch + 1, num_epochs, epoch_discriminator_loss))
     print('[LOG TRAIN {}] epoch: {:04}/{:04}, generator loss: {:.4f}'.format(now, epoch + 1, num_epochs, epoch_generator_loss))
     
-    totalElapsedTime = timeit.timeit() - start
-
     # =================== save model snapshots to disk ============================
     
     # save trained encoder model file to disk
@@ -419,6 +417,7 @@ for epoch in range(num_epochs):
     decoder_model_name = "{}_ep_{}_discriminator_model.pth".format(now, (epoch+1))
     torch.save(discriminator_train.state_dict(), os.path.join("./models", decoder_model_name))
 
+totalElapsedTime = timeit.timeit() - start
 #save execution summary
 exec_summary = "{}_model_exec_summary.txt".format(now, (epoch+1))
 f = open(os.path.join("./models", exec_summary),"w+")
