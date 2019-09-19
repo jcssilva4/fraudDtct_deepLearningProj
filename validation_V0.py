@@ -201,7 +201,7 @@ if (torch.backends.cudnn.version() != None) and (USE_CUDA == True):
     dataloader = DataLoader(torch_dataset.cuda(), batch_size=mini_batch_size, shuffle=True)
 
 # Running the network training 
-start = timeit.timeit()
+start = time.time()
 
 # init collection of training losses
 epoch_reconstruction_losses = []
@@ -417,7 +417,7 @@ for epoch in range(num_epochs):
     decoder_model_name = "{}_ep_{}_discriminator_model.pth".format(now, (epoch+1))
     torch.save(discriminator_train.state_dict(), os.path.join("./models", decoder_model_name))
 
-totalElapsedTime = timeit.timeit() - start
+totalElapsedTime = time.time() - start
 #save execution summary
 exec_summary = "{}_model_exec_summary.txt".format(now, (epoch+1))
 f = open(os.path.join("./models", exec_summary),"w+")
