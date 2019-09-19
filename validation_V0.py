@@ -421,6 +421,6 @@ for epoch in range(num_epochs):
 
 #save execution summary
 exec_summary = "{}_model_exec_summary.txt".format(now, (epoch+1))
-f = open(exec_summary,"w+")
+f = open(os.path.join("./models", exec_summary),"w+")
 f.write("training elapsed time): %f " % totalElapsedTime)
 f.close()

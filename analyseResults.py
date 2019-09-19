@@ -108,8 +108,8 @@ ori_subset_transformed = pd.concat([ori_dataset_categ_transformed, ori_dataset_n
 mini_batch_size = 128
 
 # restore pretrained model checkpoint
-encoder_model_name = 'https://raw.githubusercontent.com/GitiHubi/deepAD/master/models/20190818-03_22_18_ep_401_encoder_model.pth'
-decoder_model_name = 'https://raw.githubusercontent.com/GitiHubi/deepAD/master/models/20190818-03_22_18_ep_401_decoder_model.pth'
+encoder_model_name = 'https://raw.githubusercontent.com/jcssilva4/fraudDtct_deepLearningProj/master/models/20190919-16_00_58_ep_5_encoder_model.pth'
+decoder_model_name = 'https://raw.githubusercontent.com/jcssilva4/fraudDtct_deepLearningProj/master/models/20190919-16_00_58_ep_5_decoder_model.pth'
 
 # Read stored model from the remote location
 encoder_bytes = urllib.request.urlopen(encoder_model_name)
