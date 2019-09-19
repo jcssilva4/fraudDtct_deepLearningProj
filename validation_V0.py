@@ -1,7 +1,7 @@
 # importing python utility libraries
 import os, sys, random, io, urllib
 from datetime import datetime
-import timeit #elapsed time
+import time #elapsed time
 
 # importing pytorch libraries
 import torch
