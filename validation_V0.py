@@ -24,6 +24,8 @@ from Encoder import Encoder
 from Decoder import Decoder
 from Discriminator import Discriminator
 
+USE_CUDA = True
+
 # print current Python version
 now = datetime.utcnow().strftime("%Y%m%d-%H:%M:%S")
 print('[LOG {}] The Python version: {}'.format(now, sys.version))
