@@ -187,7 +187,7 @@ for i, mu in enumerate(mu_gauss):
 # Training the AAE model
 # prepare the network training data
 # specify training parameters
-num_epochs = 10
+num_epochs = 5
 mini_batch_size = 128
 # convert pre-processed data to pytorch tensor
 torch_dataset = torch.from_numpy(ori_subset_transformed.values).float()
