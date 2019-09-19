@@ -419,8 +419,8 @@ for epoch in range(num_epochs):
     decoder_model_name = "{}_ep_{}_discriminator_model.pth".format(now, (epoch+1))
     torch.save(discriminator_train.state_dict(), os.path.join("./models", decoder_model_name))
 
-    #save execution summary
-    exec_summary = "{}_ep_{}_model_exec_summary.txt".format(now, (epoch+1))
-    f = open(exec_summary,"w+")
-    f.write("training elapsed time): %f " % totalElapsedTime)
-    f.close()
+#save execution summary
+exec_summary = "{}_model_exec_summary.txt".format(now, (epoch+1))
+f = open(exec_summary,"w+")
+f.write("training elapsed time): %f " % totalElapsedTime)
+f.close()
