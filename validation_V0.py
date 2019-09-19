@@ -1,6 +1,7 @@
 # importing python utility libraries
 import os, sys, random, io, urllib
 from datetime import datetime
+import timeit #elapsed time
 
 # importing pytorch libraries
 import torch
@@ -25,6 +26,7 @@ from Decoder import Decoder
 from Discriminator import Discriminator
 
 USE_CUDA = True
+
 
 # print current Python version
 now = datetime.utcnow().strftime("%Y%m%d-%H:%M:%S")
@@ -199,6 +201,7 @@ if (torch.backends.cudnn.version() != None) and (USE_CUDA == True):
     dataloader = DataLoader(torch_dataset.cuda(), batch_size=mini_batch_size, shuffle=True)
 
 # Running the network training 
+start = timeit.timeit()
 
 # init collection of training losses
 epoch_reconstruction_losses = []
@@ -399,6 +402,8 @@ for epoch in range(num_epochs):
     print('[LOG TRAIN {}] epoch: {:04}/{:04}, discriminator loss: {:.4f}'.format(now, epoch + 1, num_epochs, epoch_discriminator_loss))
     print('[LOG TRAIN {}] epoch: {:04}/{:04}, generator loss: {:.4f}'.format(now, epoch + 1, num_epochs, epoch_generator_loss))
     
+    totalElapsedTime = timeit.timeit() - start
+
     # =================== save model snapshots to disk ============================
     
     # save trained encoder model file to disk
@@ -413,3 +418,9 @@ for epoch in range(num_epochs):
     # save trained discriminator model file to disk
     decoder_model_name = "{}_ep_{}_discriminator_model.pth".format(now, (epoch+1))
     torch.save(discriminator_train.state_dict(), os.path.join("./models", decoder_model_name))
+
+    #save execution summary
+    exec_summary = "{}_ep_{}_model_exec_summary.txt".format(now, (epoch+1))
+    f = open(exec_summary,"w+")
+    f.write("training elapsed time): %f " % totalElapsedTime)
+    f.close()
