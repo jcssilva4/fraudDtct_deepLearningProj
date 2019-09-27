@@ -108,7 +108,7 @@ mini_batch_size = 128
 
 # creation of the imposed latent prior distribution
 # define the number of gaussians
-tau = 5 
+tau = 10
 # define radius of each gaussian
 radius = 0.8
 # define the sigma of each gaussian
@@ -136,8 +136,8 @@ for i, mu in enumerate(mu_gauss):
         z_continous_samples_all = np.vstack([z_continous_samples_all, z_continous_samples])
 
 # restore pretrained model checkpoint
-encoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau5/20190922-15_16_11_ep_5000_encoder_model.pth?raw=true'
-decoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau5/20190922-15_16_11_ep_5000_decoder_model.pth?raw=true'
+encoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau10/20190926-23_25_55_ep_5000_encoder_model.pth?raw=true'
+decoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau10/20190926-23_25_55_ep_5000_decoder_model.pth?raw=true'
 
 # Read stored model from the remote location
 encoder_bytes = urllib.request.urlopen(encoder_model_name)
