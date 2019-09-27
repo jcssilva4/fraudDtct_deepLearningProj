@@ -222,7 +222,7 @@ ax.scatter(local_outliers[:, 0], local_outliers[:, 1], c='C3', marker="x", label
 
 # add plot legend of transaction classes
 ax.legend(loc='best');
-fig.savefig("results/latentspace_representation.png")
+fig.savefig("results/tau" + str(tau) + "_latentspace_representation.png")
 
 
 # DETERMINE NORMALIZED DIVERGENCE OF EACH JOURNAL ENTRY
