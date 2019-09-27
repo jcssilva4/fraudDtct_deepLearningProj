@@ -136,8 +136,8 @@ for i, mu in enumerate(mu_gauss):
         z_continous_samples_all = np.vstack([z_continous_samples_all, z_continous_samples])
 
 # restore pretrained model checkpoint
-encoder_model_name = 'https://raw.githubusercontent.com/jcssilva4/fraudDtct_deepLearningProj/master/models/20190919-16_00_58_ep_5_encoder_model.pth'
-decoder_model_name = 'https://raw.githubusercontent.com/jcssilva4/fraudDtct_deepLearningProj/master/models/20190919-16_00_58_ep_5_decoder_model.pth'
+encoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau5/20190922-15_16_11_ep_5000_encoder_model.pth?raw=true'
+decoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau5/20190922-15_16_11_ep_5000_decoder_model.pth?raw=true'
 
 # Read stored model from the remote location
 encoder_bytes = urllib.request.urlopen(encoder_model_name)
@@ -445,7 +445,7 @@ fig.savefig("results/error_reconstruction.png")
 
 #Determine anomaly score (AS) of each journal entry
 # set alpha 
-alpha = 0.4
+alpha = 0.8
 
 # determine journal entry anomaly score
 anomaly_score = alpha * rec_error_all_scaled + (1.0 - alpha) * mode_divergence_all_scaled
