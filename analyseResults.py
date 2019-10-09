@@ -136,8 +136,8 @@ for i, mu in enumerate(mu_gauss):
         z_continous_samples_all = np.vstack([z_continous_samples_all, z_continous_samples])
 
 # restore pretrained model checkpoint
-encoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau10/20190926-23_25_55_ep_5000_encoder_model.pth?raw=true'
-decoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau10/20190926-23_25_55_ep_5000_decoder_model.pth?raw=true'
+encoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau5/20190930-15_29_22_ep_5000_encoder_model.pth?raw=true'
+decoder_model_name = 'https://github.com/jcssilva4/fraudDtct_deepLearningProj/blob/master/models/tau5/20190930-15_29_22_ep_5000_decoder_model.pth?raw=true'
 
 # Read stored model from the remote location
 encoder_bytes = urllib.request.urlopen(encoder_model_name)
@@ -222,7 +222,7 @@ ax.scatter(local_outliers[:, 0], local_outliers[:, 1], c='C3', marker="x", label
 
 # add plot legend of transaction classes
 ax.legend(loc='best');
-fig.savefig("results/tau" + str(tau) + "_latentspace_representation.png")
+fig.savefig("results/latentspace_representation.png")
 
 
 # DETERMINE NORMALIZED DIVERGENCE OF EACH JOURNAL ENTRY
